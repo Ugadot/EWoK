@@ -10,7 +10,7 @@ Unlike previous works that regularize the policy or value updates, EWoK achieves
 Notably, EWoK can be applied on top of any off-the-shelf _non-robust_ RL algorithm, enabling easy scaling to high-dimensional domains.
 Our experiments, spanning from simple Cartpole to high-dimensional DeepMind Control Suite environments, demonstrate the effectiveness and applicability of the EWoK paradigm as a practical method for learning robust policies.
 ### Paper
-Check out our paper at TODO
+Check out our [paper](https://arxiv.org/abs/2306.05859)
 
 [//]: # ([Project Book]&#40;doc/RL_Project_Book.pdf&#41;)
 
