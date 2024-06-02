@@ -1,0 +1,27 @@
+name: sac
+
+channels:
+  - defaults
+  - nvidia
+
+dependencies:
+  - python=3.7
+  - pytorch::pytorch==1.13.1
+  - pytorch::torchvision==0.14.1
+  - pytorch::pytorch-cuda=11.7
+  - absl-py=1.3.0
+  - pyparsing=3.0.9
+  - pip
+  - pip:
+    - termcolor==2.2.0
+    - gym==0.25.2
+    - mujoco==2.3.3
+    - dm-control==1.0.11
+    - git+https://github.com/denisyarats/dmc2gym.git
+    - tensorboard==2.11.2
+    - imageio==2.27.0
+    - imageio-ffmpeg==0.4.8
+    - hydra-core==0.11.3
+    - omegaconf==1.4.1
+    - scikit-image==0.19.3
+    - git+https://github.com/google-research/realworldrl_suite.git

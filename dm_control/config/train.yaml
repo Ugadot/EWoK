@@ -1,0 +1,45 @@
+defaults:
+    - agent: sac
+
+# this needs to be specified manually
+experiment: tmp_exp
+seed: 1
+device: cuda
+
+env:
+    train:
+        name: walker_walk
+        seed: ${seed}
+        noisy:
+            enable: false
+            reset: false
+            mean: 0.0
+            scale: 0.1
+            temperature: 2.0
+            n_trials: 10
+    test:
+        name: ${env.train.name}
+        seed: ${seed}
+        n_perturb_values: 21
+        noisy:
+            enable: ${env.train.noisy.enable}
+            reset: false
+            mean: ${env.train.noisy.mean}
+            mean_min: -0.3
+            mean_max: 0.3
+            scale: ${env.train.noisy.scale}
+
+num_train_steps: 1e6
+replay_buffer_capacity: ${num_train_steps}
+num_seed_steps: 5000
+num_eval_episodes: 50
+
+# logger
+log_frequency: 1000
+log_save_tb: false
+
+# hydra configuration
+hydra:
+    name: ${env.train.name}
+    run:
+        dir: ./exp/training/${now:%Y.%m.%d}/${now:%H%M%S}_${env.train.name}_${agent.name}_${experiment}_seed${seed}
